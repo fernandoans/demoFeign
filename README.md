@@ -1,8 +1,23 @@
 # Projeto DemoFeign - Para Spring Boot Cloud Feign
 
 Neste projeto buscaremos de 2 lugares:
-- Dados do IBGE
-- De outro Microserviço
+- Dados do IBGE:
+  - Listagem com todos os estados do Brasil.
+  - Listagem com todos os municípios do Estado de Pernambuco.
+- De outro Microserviço:
+  - Exemplo para um serviço que exige autenticação.
+
+## Spring Cloud Feign
+
+Tratado como um cliente HTTP declarativo com o objetivo de simplificar a integração entre serviços, principalmente
+na arquiteturas de microsserviços. Foi desenvolvido pela Netflix e integrado ao ecossistema Spring Cloud, permite 
+a criação de interfaces Java com anotações que abstraem detalhes de comunicação REST, como URLs, métodos HTTP e 
+parâmetros. Ao utilizar anotações como @FeignClient, são definidos contratos para chamadas a APIs externas sem 
+necessitar implementar código manual para requisições HTTP, serialização ou desserialização. 
+
+O Feign integra-se naturalmente com o Spring Cloud Load Balancer (substituto do Ribbon) e o Eureka para service 
+discovery, garante balanceamento de carga e resolução dinâmica de endereços. Reduz a complexidade do código, 
+torna as chamadas entre serviços mais legíveis e mantém a coesão das práticas do Spring Boot.
 
 ## Classe Record (Java 16)
 
@@ -12,4 +27,18 @@ Neste projeto buscaremos de 2 lugares:
 
 ## Execução
 
-Primeiro execute o MicroServiço DemoAutentica disponível em https://github.com/fernandoans/demoAutentica.
+Primeiro executar o MicroServiço DemoAutentica disponível em https://github.com/fernandoans/demoAutentica.
+
+## Modo de usar
+
+Subir o serviço com:
+```
+$ ./mvnw spring-boot:run
+```
+
+Chamar os serviços com o CURL:
+```
+$ curl -H http://localhost:8080/exemplofeign/estados
+$ curl -H http://localhost:8080/exemplofeign/municipios
+$ curl -H http://localhost:8080/exemplofeign/exemplo
+```

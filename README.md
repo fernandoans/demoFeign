@@ -12,41 +12,4 @@ Neste projeto buscaremos de 2 lugares:
 
 ## Execução
 
-Primeiro execute o MicroServiço DemoAutentica disponível em 
-
-A versão 8.1.0 é a versão recomendada pela Flyway, testar com: SELECT version();
-
-Parar com:
-```
-$ docker stop meu-mysql
-```
-
-Nas próximas vezes, iniciar com: 
-```
-$ docker start meu-mysql
-```
-
-Com o contêiner ativo, criar o banco de dados através dos seguintes passos:
-
-1. Entrar no contêiner:
-```
-$ docker exec -it meu-mysql bash
-```
-2. Acessar o mysql:
-```
-bash-4.4# mysql -uroot -p
-```
-3. Ao digitar a senha root, criar o banco de dados e sair do contêiner:
-```
-mysql> create database banking_app;
-mysql> exit
-bash-4.4# exit
-```
-
-## Documentação
-
-A documentação é uma parte essencial da construção de APIs REST. Foi utilizada a SpringDoc, que simplifica a geração 
-e manutenção de documentos de API com base na especificação OpenAPI 3 para aplicativos Spring Boot 3.x. Ao ativar o
-projeto, a documentação pode ser acessada no endereço: http://localhost:8080/swagger-ui-custom.html.
-
-O contrato, em formato JSON, está exposto no endereço: http://localhost:8080/api-docs.
+Primeiro execute o MicroServiço DemoAutentica disponível em https://github.com/fernandoans/demoAutentica.
